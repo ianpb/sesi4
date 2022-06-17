@@ -1,6 +1,62 @@
 # Node.js Rest APIs with Express, Sequelize & MySQL
 Building this with Docker-Compose, everything seems running fine, DB was created on mysql container correctly and API site was running fine on port 8080 but issue for there is no data could be saved from API sequelized site to DB, tested with Postman ( https://i.imgur.com/VYOPSpi.png )
 
++++++++
+
+$ docker-compose up --build -d
+Creating network "session4_backend" with the default driver
+Pulling mysqldb (mysql:5.7)...
+5.7: Pulling from library/mysql
+c1ad9731b2c7: Pull complete
+54f6eb0ee84d: Pull complete
+cffcf8691bc5: Pull complete
+89a783b5ac8a: Pull complete
+6a8393c7be5f: Pull complete
+af768d0b181e: Pull complete
+810d6aaaf54a: Pull complete
+81fe6daf2395: Pull complete
+5ccf426818fd: Pull complete
+68b838b06054: Pull complete
+1b606c4f93df: Pull complete
+Digest: sha256:7e99b2b8d5bca914ef31059858210f57b009c40375d647f0d4d65ecd01d6b1d5
+Status: Downloaded newer image for mysql:5.7
+Building api
+Sending build context to Docker daemon  20.99kB
+Step 1/6 : FROM node:14
+ ---> d0c8d2556876
+Step 2/6 : WORKDIR /api
+ ---> Running in 63451e5a4ec2
+Removing intermediate container 63451e5a4ec2
+ ---> d53e59afb80f
+Step 3/6 : COPY package.json .
+ ---> fc9ea4022be7
+Step 4/6 : RUN npm install
+ ---> Running in 539d0d2e7d6e
+npm WARN deprecated sequelize@5.22.5: Please update to v6 or higher! A migration guide can be found here: https://sequelize.org/v6/manual/upgrade-to-v6.html
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN nodejs-express-sequelize-mysql@1.0.0 No repository field.
+
+added 95 packages from 143 contributors and audited 95 packages in 5.172s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+Removing intermediate container 539d0d2e7d6e
+ ---> 2423351f2108
+Step 5/6 : COPY . .
+ ---> f3b117e764aa
+Step 6/6 : CMD npm start
+ ---> Running in 6f597bfa9137
+Removing intermediate container 6f597bfa9137
+ ---> 82954af9306d
+Successfully built 82954af9306d
+Successfully tagged session4_api:latest
+Creating session4_mysqldb_1 ... done
+Creating session4_api_1     ... done
+
++++++++
 
 $ docker ps -a
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                                  NAMES
