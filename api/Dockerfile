@@ -2,7 +2,7 @@ FROM node:14
 
 WORKDIR /api
 COPY package.json .
-RUN npm install && npm install dotenv --save 
+RUN npm install express sequelize mysql2 body-parser cors dotenv --save 
 COPY . .
 CMD [ "node", "server.js" ]
 
