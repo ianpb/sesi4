@@ -1,5 +1,8 @@
 # Node.js Rest APIs with Express, Sequelize & MySQL
-Building this with Docker-Compose, everything seems running fine, DB was created on mysql container correctly and API site was running fine on port 8080 but issue for there is no data could be saved from API sequelized site to DB, tested with Postman ( https://i.imgur.com/VYOPSpi.png )
+docker-compose up --build -d
+
+change parameters on .env, note that DB Host should be same with the DB container's name in docker-compose.yml
+
 
 +++++++
 
